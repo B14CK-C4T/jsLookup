@@ -9,8 +9,7 @@ def pattern(pattern_file):
     return patterns
 
 def lookup(file_name, patterns):
-    with open(file_name, 'r') as file:
-        content = file.read()
+    with open(file_name, 'r') as file:      
         lines = file.readlines()
         for pat in patterns:
             for line in lines:
