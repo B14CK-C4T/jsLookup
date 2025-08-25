@@ -1,1 +1,8 @@
+# Local Files
 testfile.txt
+output.txt
+
+# VS Code
+.vscode/
+
+__pycache__/
