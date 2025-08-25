@@ -1,6 +1,6 @@
-/static/js/*.chunk.js
+/static/js/chunk.js
 /main.chunk.js
-/_next/static/cunks/*.js
+/_next/static/cunks/
 /config.js
 /env.js
 /sw.js
