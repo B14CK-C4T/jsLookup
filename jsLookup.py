@@ -16,7 +16,7 @@ def lookup(file_name, patterns,output_file=None, verbose=None):
     results = []
     working_dir = os.getcwd()
     try:
-        with open(f"{working_dir}{file_name}", 'r') as file:      
+        with open(f"{working_dir}/{file_name}", 'r') as file:      
             lines = file.readlines()
             for pat in patterns:
                 for line in lines:
@@ -49,7 +49,7 @@ def main():
 
     file_name = args.file
 
-    patterns = pattern(pattern_file)
+    
     lookup(file_name, patterns)
 
 
