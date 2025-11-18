@@ -43,11 +43,15 @@ def main():
     #pattern_file = 'pattern.txt'
 
     parser = argparse.ArgumentParser(description="jsParser")
-    parser.add_argument('--file','-f',type=str,help='file name',required=True,)
+    parser.add_argument('--file','-f',type=str,help='file name',required=True)
+    parser.add_argument('-o',type=str,help='save output into file')
+    parser.add_argument('-v',help='verbose output',action='store_true')
 
     args = parser.parse_args()
 
     file_name = args.file
+    output_file = args.o
+    verbose = args.v
 
     
     lookup(file_name, patterns)
