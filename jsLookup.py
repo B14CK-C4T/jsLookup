@@ -1,20 +1,22 @@
 import argparse
 import re
+import os
 
-def pattern(pattern_file):
-    patterns = []
-    try:
-        with open(pattern_file, 'r') as file:
-            for lines in file:
-                patterns.append(lines.strip())
-        return patterns
-    except FileNotFoundError:
-        print("[!] Pattern file are missing")
+#def pattern(pattern_file):
+patterns = ["/static/js/chunk.js","/main.chunk.js","/_next/static/cunks/","/config.js","/env.js","/sw.js","/service-worker.js","main.js.map","/_/firebase/init.js","/intercom.js","/livechat.js","/analytics.js",".mjs""/cdn-cgi/","/cloudflare-assets/","/assets/js/","/vendor.js","/app.js","/bundle.js"]
+  #  try:
+   #     with open(pattern_file, 'r') as file:
+   #         for lines in file:
+   #             patterns.append(lines.strip())
+   #     return patterns
+   # except FileNotFoundError:
+   #     print("[!] Pattern file are missing")
 
 def lookup(file_name, patterns,output_file=None, verbose=None):
     results = []
+    working_dir = os.getcwd()
     try:
-        with open(file_name, 'r') as file:      
+        with open(f"{working_dir}/{file_name}", 'r') as file:      
             lines = file.readlines()
             for pat in patterns:
                 for line in lines:
@@ -38,7 +40,7 @@ def lookup(file_name, patterns,output_file=None, verbose=None):
 
 def main():
 
-    pattern_file = 'pattern.txt'
+    #pattern_file = 'pattern.txt'
 
     parser = argparse.ArgumentParser(description="jsParser")
     parser.add_argument('--file','-f',type=str,help='file name',required=True)
@@ -51,8 +53,8 @@ def main():
     output_file = args.o
     verbose = args.v
 
-    patterns = pattern(pattern_file)
-    lookup(file_name, patterns,output_file,verbose)
+    
+    lookup(file_name, patterns)
 
 
 if __name__ == "__main__":
