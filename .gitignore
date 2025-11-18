@@ -1,1 +1,11 @@
 testfile.txt
+<<<<<<< Updated upstream
+=======
+output.txt
+test-env/
+
+# VS Code
+.vscode/
+
+__pycache__/
+>>>>>>> Stashed changes
