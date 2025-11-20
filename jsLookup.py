@@ -2,15 +2,7 @@ import argparse
 import re
 import os
 
-#def pattern(pattern_file):
 patterns = ["/static/js/chunk.js","/main.chunk.js","/_next/static/cunks/","/config.js","/env.js","/sw.js","/service-worker.js","main.js.map","/_/firebase/init.js","/intercom.js","/livechat.js","/analytics.js",".mjs""/cdn-cgi/","/cloudflare-assets/","/assets/js/","/vendor.js","/app.js","/bundle.js"]
-  #  try:
-   #     with open(pattern_file, 'r') as file:
-   #         for lines in file:
-   #             patterns.append(lines.strip())
-   #     return patterns
-   # except FileNotFoundError:
-   #     print("[!] Pattern file are missing")
 
 def lookup(file_name, patterns,output_file=None, verbose=None):
     results = []
@@ -40,11 +32,9 @@ def lookup(file_name, patterns,output_file=None, verbose=None):
 
 def main():
 
-    #pattern_file = 'pattern.txt'
-
-    parser = argparse.ArgumentParser(description="jsParser")
-    parser.add_argument('--file','-f',type=str,help='file name',required=True)
-    parser.add_argument('-o',type=str,help='save output into file')
+    parser = argparse.ArgumentParser(description="jsLookup is a simple Python tool for searching patterns in JavaScript (or any text) files. It scans a target file for matching lines.")
+    parser.add_argument('-f','--file',type=str,help='file name',required=True,metavar="")
+    parser.add_argument('-o',type=str,help='save output into file',metavar="file name")
     parser.add_argument('-v',help='verbose output',action='store_true')
 
     args = parser.parse_args()
@@ -54,7 +44,7 @@ def main():
     verbose = args.v
 
     
-    lookup(file_name, patterns)
+    lookup(file_name, patterns,output_file,verbose)
 
 
 if __name__ == "__main__":
