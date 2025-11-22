@@ -1,7 +1,6 @@
 # jsLookup
 
-**jsLookup** is a simple Python tool for searching patterns in JavaScript (or any text) files.  
-It reads patterns from a `pattern.txt` file and scans a target file for matching lines.
+**jsLookup** jsLookup is a simple Python tool for searching patterns in JavaScript (or any text) files. It scans a target file for matching lines
 
 ## Features
 
@@ -13,7 +12,7 @@ It reads patterns from a `pattern.txt` file and scans a target file for matching
 ## Usage
 
 ```bash
-python jsLookup.py --file target.js
+python3 jsLookup.py --file target.js
 ```
 
 **Optional arguments:**
@@ -24,7 +23,7 @@ python jsLookup.py --file target.js
 **Example:**
 
 ```bash
-python jsLookup.py --file target.js -o results.txt -v
+python3 jsLookup.py --file target.js -o results.txt -v
 ```
 
 ## Requirements
